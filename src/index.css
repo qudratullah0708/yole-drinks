@@ -1,107 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  :root {
-    /* Premium Drinks Theme */
-    --background: 10 15% 4%;
-    --foreground: 40 85% 96%;
-
-    --card: 15 15% 8%;
-    --card-foreground: 40 85% 96%;
-
-    --popover: 15 15% 8%;
-    --popover-foreground: 40 85% 96%;
-
-    /* Yolé Brand Colors */
-    --primary: 45 100% 62%;
-    --primary-foreground: 15 15% 8%;
-    --primary-glow: 45 100% 75%;
-
-    --secondary: 168 85% 78%;
-    --secondary-foreground: 15 15% 8%;
-
-    --muted: 15 15% 12%;
-    --muted-foreground: 40 25% 65%;
-
-    --accent: 35 100% 75%;
-    --accent-foreground: 15 15% 8%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 15 15% 18%;
-    --input: 15 15% 18%;
-    --ring: 45 100% 62%;
-
-    --radius: 1rem;
-
-    /* Premium Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-drinks: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(168 85% 85%) 100%);
-    --gradient-premium: linear-gradient(135deg, hsl(15 15% 8%) 0%, hsl(15 15% 12%) 100%);
-    
-    /* Shadows & Effects */
-    --shadow-premium: 0 25px 50px -12px hsl(var(--primary) / 0.25);
-    --shadow-glow: 0 0 80px hsl(var(--primary-glow) / 0.6);
-    --shadow-card: 0 20px 40px -10px hsl(15 15% 4% / 0.5);
-    
-    /* Animations */
-    --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    --transition-bounce: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-elastic: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+:root {
+  /* Vibrant Color Palette - Yolé Brand */
+  --background: 45 100% 97%;
+  --foreground: 25 85% 25%;
+  
+  /* Card & Surface Colors */
+  --card: 0 0% 100%;
+  --card-foreground: 25 85% 25%;
+  
+  /* Muted Colors */
+  --muted: 45 50% 95%;
+  --muted-foreground: 25 30% 50%;
+  
+  /* Border Colors */
+  --border: 45 30% 85%;
+  --input: 45 30% 90%;
+  
+  /* Primary Brand Colors - Turquoise/Teal */
+  --primary: 175 85% 55%;
+  --primary-foreground: 0 0% 100%;
+  --primary-glow: 175 100% 65%;
+  
+  /* Secondary Colors - Golden Yellow */
+  --secondary: 45 100% 60%;
+  --secondary-foreground: 25 85% 25%;
+  
+  /* Accent Colors - Orange/Coral */
+  --accent: 15 90% 65%;
+  --accent-foreground: 0 0% 100%;
+  
+  /* Additional Vibrant Colors */
+  --vibrant-pink: 330 85% 70%;
+  --vibrant-blue: 215 85% 65%;
+  --vibrant-green: 150 80% 55%;
+  --vibrant-purple: 270 75% 70%;
+  
+  /* Utility Colors */
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 85% 97%;
+  --ring: 175 85% 55%;
+  --radius: 1rem;
+  
+  /* Custom Gradients */
+  --gradient-hero: linear-gradient(135deg, hsl(175, 85%, 55%), hsl(215, 85%, 65%), hsl(270, 75%, 70%));
+  --gradient-drinks: linear-gradient(135deg, hsl(45, 100%, 60%), hsl(15, 90%, 65%));
+  --gradient-premium: linear-gradient(135deg, hsl(330, 85%, 70%), hsl(175, 85%, 55%));
+  --gradient-fun: linear-gradient(45deg, hsl(175, 85%, 55%), hsl(45, 100%, 60%), hsl(330, 85%, 70%), hsl(215, 85%, 65%));
+  
+  /* Floating Animation Gradients */
+  --gradient-floating-1: radial-gradient(circle, hsl(175, 85%, 55%, 0.3), transparent);
+  --gradient-floating-2: radial-gradient(circle, hsl(45, 100%, 60%, 0.25), transparent);
+  --gradient-floating-3: radial-gradient(circle, hsl(330, 85%, 70%, 0.2), transparent);
+  
+  /* Custom Shadows */
+  --shadow-glow: 0 0 50px hsl(175, 85%, 55%, 0.4);
+  --shadow-card: 0 15px 35px -5px hsl(175, 85%, 55%, 0.15);
+  --shadow-premium: 0 25px 50px -12px hsl(330, 85%, 70%, 0.25);
+  --shadow-vibrant: 0 20px 40px -10px hsl(45, 100%, 60%, 0.3);
+  
+  /* Animation Variables */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-modern overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(175, 85%, 55%, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(45, 100%, 60%, 0.05) 0%, transparent 50%);
   }
+}
+
+@layer utilities {
+  /* Typography */
+  .font-playful {
+    font-family: 'Fredoka', sans-serif;
+  }
+  
+  .font-modern {
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  /* Animations */
+  .animate-bounce-fun {
+    animation: bounce-fun 2s ease-in-out infinite;
+  }
+  
+  .animate-float-gentle {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-up-stagger {
+    animation: slide-up-stagger 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-liquid-flow {
+    animation: liquid-flow 4s ease-in-out infinite;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    transition: var(--transition-bounce);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px hsl(175, 85%, 55%, 0.25);
+  }
+  
+  .hover-bounce:hover {
+    animation: quick-bounce 0.6s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(175, 85%, 55%, 0.5);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes bounce-fun {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes slide-up-stagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px hsl(175, 85%, 55%, 0.4);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 40px hsl(175, 85%, 55%, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes liquid-flow {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes quick-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Floating Elements */
+.floating-element {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element-1 {
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-floating-1);
+  border-radius: 50%;
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.floating-element-2 {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-floating-2);
+  border-radius: 50%;
+  animation: float-gentle 3s ease-in-out infinite reverse;
+}
+
+.floating-element-3 {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-floating-3);
+  border-radius: 50%;
+  animation: float-gentle 5s ease-in-out infinite;
 }
